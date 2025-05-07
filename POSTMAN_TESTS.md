@@ -1,376 +1,491 @@
-[◘ ROLE - FUNCIONALIDADES ◘]
+# 🌐 **Documentación de Pruebas API** 🧪
 
-[♦ CREAR ♦]{
+---
 
-[*TIENES QUE LOGARTE CON UN USUARIO ADMIN PARA CREAR UN USER*]
+## 📑 **Índice**
 
-[*USER*]{
+1. [👤 USER (`/api/user`)](#-user-apiuser-)
+   - [♦ Crear Usuario](#-crear-usuario)
+   - [♦ Consultar Usuarios](#-consultar-usuarios)
+   - [♦ Actualizar Usuario](#-actualizar-usuario)
+   - [♦ Eliminar Usuario](#-eliminar-usuario)
+2. [🛡️ ROLE (`/api/role`)](#%EF%B8%8F-role-apirole-)
+   - [♦ Crear Rol](#-crear-rol)
+   - [♦ Consultar Roles](#-consultar-roles)
+   - [♦ Actualizar Rol](#-actualizar-rol)
+   - [♦ Eliminar Rol](#-eliminar-rol)
+3. [🌟 CATEGORY (`/api/category`)](#-category-apicategory-)
+   - [♦ Crear Categoría](#-crear-categoría)
+   - [♦ Consultar Categorías](#-consultar-categorías)
+   - [♦ Actualizar Categoría](#-actualizar-categoría)
+   - [♦ Eliminar Categoría](#-eliminar-categoría)
+4. [🛒 PRODUCT (`/api/product`)](#-product-apiproduct-)
+   - [♦ Crear Producto](#-crear-producto)
+   - [♦ Consultar Productos](#-consultar-productos)
+   - [♦ Actualizar Producto](#-actualizar-producto)
+   - [♦ Eliminar Producto](#-eliminar-producto)
+5. [💰 SALE (`/api/sale`)](#-sale-apisale-)
+   - [♦ Crear Venta](#-crear-venta)
+   - [♦ Consultar Ventas](#-consultar-ventas)
+   - [♦ Actualizar Venta](#-actualizar-venta)
+   - [♦ Eliminar Venta](#-eliminar-venta)
+6. [📄 SALE DETAIL (`/api/saledetail`)](#-sale-detail-apisaledetail-)
+   - [♦ Crear Detalle de Venta](#-crear-detalle-de-venta)
+   - [♦ Consultar Detalles de Venta](#-consultar-detalles-de-venta)
+   - [♦ Actualizar Detalle de Venta](#-actualizar-detalle-de-venta)
+   - [♦ Eliminar Detalle de Venta](#-eliminar-detalle-de-venta)
+7. [🎟 COUPON (`/api/coupon`)](#-coupon-apicoupon-)
+   - [♦ Crear Cupón](#-crear-cupón)
+   - [♦ Consultar Cupones](#-consultar-cupones)
+   - [♦ Actualizar Cupón](#-actualizar-cupón)
+   - [♦ Eliminar Cupón](#-eliminar-cupón)
 
-*
-Método HTTP: POST
+---
 
-URL: http://localhost:9090/api/user
+## 👤 **USER** (`/api/user`) 👤
 
-Cuerpo de la solicitud (JSON):
+### 🛠️ **[♦ CREAR ♦]**
+#### 🔐 **Crear Usuario** *(Solo ADMIN logueado)*
 
+- 📡 **Método HTTP:** `POST`  
+- 🌐 **Endpoint:** `http://localhost:9090/api/user`  
+- 📥 **Cuerpo de la solicitud (JSON):**
+```json
 {
-    "username": "marc_actualizado",
-    "password": "$2a$12$.pfOD/Bly4UyEBn1vVqAjuHlJGa.1RaWKf2JLINd5AFMhzky0PGmO",
-    "roles": ["ROLE_ADMIN"]
+  "username": "marc_actualizado",
+  "password": "$2a$12$.pfOD/Bly4UyEBn1vVqAjuHlJGa.1RaWKf2JLINd5AFMhzky0PGmO",
+  "roles": ["ROLE_ADMIN"]
 }
-//El usuario es: marc_actualizado
-//La contraseña es: contraseña123
-
-Respuesta esperada (201 Created):
-
+```
+- ✅ **Respuesta esperada:** `201 Created`
+```json
 {
-    "id": 3,
-    "username": "marc_actualizado",
-    "roles": [
-        "ROLE_ADMIN"
-    ]
+  "id": 3,
+  "username": "marc_actualizado",
+  "roles": ["ROLE_ADMIN"]
 }
+```
 
-Método HTTP: GET por List All
-http://localhost:9090/api/user
+---
 
-Método HTTP: GET por id
-http://localhost:9090/api/user/1
+### 📄 **[♦ CONSULTAR ♦]**
 
-Método HTTP: GET por name
-http://localhost:9090/api/user/name/admin
+#### 🔍 **Listar Todos los Usuarios**
+- 🌐 **Método HTTP:** `GET`  
+- 🔗 **URL:** `http://localhost:9090/api/user`
 
-Método HTTP: PUT para update
-http://localhost:9090/api/user/1
+#### 🔍 **Obtener Usuario por ID**
+- 🌐 **Método HTTP:** `GET`  
+- 🔗 **URL:** `http://localhost:9090/api/user/{id}`  
+  *(Ejemplo: `http://localhost:9090/api/user/1`)*
+
+#### 🔍 **Obtener Usuario por Nombre**
+- 🌐 **Método HTTP:** `GET`  
+- 🔗 **URL:** `http://localhost:9090/api/user/name/{username}`  
+  *(Ejemplo: `http://localhost:9090/api/user/name/admin`)*
+
+---
+
+### ✏️ **[♦ ACTUALIZAR ♦]**
+
+#### ♻️ **Actualizar un Usuario**
+- 📡 **Método HTTP:** `PUT`  
+- 🔗 **URL:** `http://localhost:9090/api/user/{id}`  
+  *(Ejemplo: `http://localhost:9090/api/user/1`)*  
+- 📥 **Cuerpo de la solicitud (JSON):**
+```json
 {
-    "username": "Leo_BETA-TESTER",
-    "password": "$2a$12$EOKxnJ2hYOaIg.46pVExIe51rNB7kaLJ7WuFfZWYLsATNjKNToYia",
-    "roles": ["ROLE_ADMIN"]
+  "username": "Leo_BETA-TESTER",
+  "password": "$2a$12$EOKxnJ2hYOaIg.46pVExIe51rNB7kaLJ7WuFfZWYLsATNjKNToYia",
+  "roles": ["ROLE_ADMIN"]
 }
-// el nuevo nombre es: Leo_BETA-TESTER 
-Método HTTP: DELETE por id
-http://localhost:9090/api/user/id/3
+```
+- 📌 **Nota:** El nuevo nombre de usuario será: `Leo_BETA-TESTER`
 
-Método HTTP: DELETE por name
-http://localhost:9090/api/user/name/3
+---
 
-}
+### ❌ **[♦ ELIMINAR ♦]**
 
-[*Category*]{
+#### 🗑️ **Eliminar Usuario por ID**
+- 🧨 **Método HTTP:** `DELETE`  
+- 🔗 **URL:** `http://localhost:9090/api/user/id/{id}`  
+  *(Ejemplo: `http://localhost:9090/api/user/id/3`)*
 
-Método HTTP: POST
+#### 🔥 **Eliminar Usuario por Nombre**
+- 🧹 **Método HTTP:** `DELETE`  
+- 🔗 **URL:** `http://localhost:9090/api/user/name/{username}`  
+  *(Ejemplo: `http://localhost:9090/api/user/name/Leo_BETA-TESTER`)*
 
-URL: http://localhost:9090/api/category
+---
 
-Cuerpo de la solicitud (JSON):
+## 🛡️ **ROLE** (`/api/role`) 🛡️
 
+### 🛠️ **[♦ CREAR ♦]**
+#### ✨ **Crear un nuevo rol**
+- 📡 **Método HTTP:** `POST`  
+- 🔗 **URL:** `http://localhost:9090/api/role`  
+- 📥 **Cuerpo de la solicitud (JSON):**
+```json
 {
-    "name": "Componentes_PC",
-    "description" : "Productos ensamblar o actualizar tu computadora"
+  "name": "ROLE_MANAGER"
 }
-
-Respuesta esperada (201 Created):
-
+```
+- ✅ **Respuesta esperada:** `201 Created`
+```json
 {
-    "id": 52,
-    "name": "Componentes_PC_Y_LAPTOPS",
-    "description": "Productos ensamblar o actualizar tu computadora o laptop."
+  "id": 4,
+  "name": "ROLE_MANAGER"
 }
+```
 
+---
 
-Método HTTP: GET por List All
-http://localhost:9090/api/category
+### 📄 **[♦ CONSULTAR ♦]**
+#### 📑 **Listar todos los roles**
+- 📡 **Método HTTP:** `GET`  
+- 🔗 **URL:** `http://localhost:9090/api/role`
 
-Método HTTP: GET por id
-http://localhost:9090/api/category/1
+#### 🔍 **Obtener un rol por ID**
+- 📡 **Método HTTP:** `GET`  
+- 🔗 **URL:** `http://localhost:9090/api/role/4`
 
-Método HTTP: GET por name
-http://localhost:9090/api/category/name/Salud
+#### 🔍 **Obtener un rol por nombre**
+- 📡 **Método HTTP:** `GET`  
+- 🔗 **URL:** `http://localhost:9090/api/role/name/ROLE_MANAGER`
 
-Método HTTP: PUT para update
-http://localhost:9090/api/category/1
+---
+
+### ✏️ **[♦ ACTUALIZAR ♦]**
+#### ♻️ **Actualizar un rol**
+- 📡 **Método HTTP:** `PUT`  
+- 🔗 **URL:** `http://localhost:9090/api/role/4`  
+- 📥 **Cuerpo de la solicitud (JSON):**
+```json
 {
-    "name": "Componentes_PC_Y_LAPTOPS",
-    "description" : "Productos ensamblar o actualizar tu computadora o laptop."
+  "name": "ROLE_SUPERVISOR"
 }
+```
 
-Método HTTP: DELETE por id
-http://localhost:9090/api/category/id/3
+---
 
-Método HTTP: DELETE por name
-http://localhost:9090/api/category/name/Componentes_PC_Y_LAPTOPS
+### ❌ **[♦ ELIMINAR ♦]**
+#### 🗑️ **Eliminar un rol por ID**
+- 📡 **Método HTTP:** `DELETE`  
+- 🔗 **URL:** `http://localhost:9090/api/role/id/4`
 
-}
+#### 🗑️ **Eliminar un rol por nombre**
+- 📡 **Método HTTP:** `DELETE`  
+- 🔗 **URL:** `http://localhost:9090/api/role/name/ROLE_SUPERVISOR`
 
-[*Product*]{
+---
 
-Método HTTP: POST
+## 🌟 **CATEGORY** (`/api/category`) 🌟
 
-URL: http://localhost:9090/api/product
-
-Cuerpo de la solicitud (JSON):
-
+### 🛠️ **[♦ CREAR ♦]**
+#### ✨ **Crear una nueva categoría**
+- 📡 **Método HTTP:** `POST`  
+- 🔗 **URL:** `http://localhost:9090/api/category`  
+- 📥 **Cuerpo de la solicitud (JSON):**
+```json
 {
-    "name": "Smartphone X Pro",
-    "description" : "Smartphone de alta gama con cámara de 64 MP y pantalla OLED.",
-    "price": 899.00,
-    "stock": 50,
-    "minStock": 5,
-    "categoryId": 1
+  "name": "Componentes_PC",
+  "description": "Productos para ensamblar o actualizar tu computadora"
 }
-
-Respuesta esperada (201 Created):
-
+```
+- ✅ **Respuesta esperada:** `201 Created`
+```json
 {
-    "id": 51,
-    "name": "Smartphone X Pro",
-    "description" : "Smartphone de alta gama con cámara de 64 MP y pantalla OLED.",
-    "price": 899.00,
-    "stock": 50,
-    "minStock": 5,
-    "categoryId": 1
+  "id": 52,
+  "name": "Componentes_PC_Y_LAPTOPS",
+  "description": "Productos para ensamblar o actualizar tu computadora o laptop."
 }
+```
 
+---
 
-Método HTTP: GET por List All
-http://localhost:9090/api/product
+### 📄 **[♦ CONSULTAR ♦]**
+#### 📑 **Listar todas las categorías**
+- 🌐 **Método HTTP:** `GET`  
+- 🔗 **URL:** `http://localhost:9090/api/category`
 
-Método HTTP: GET por id
-http://localhost:9090/api/product/51
+#### 🔍 **Obtener una categoría por ID**
+- 🌐 **Método HTTP:** `GET`  
+- 🔗 **URL:** `http://localhost:9090/api/category/{id}`  
+  *(Ejemplo: `http://localhost:9090/api/category/1`)*
 
-Método HTTP: GET por name
-http://localhost:9090/api/product/name/Smartphone X Pro
+#### 🔍 **Obtener una categoría por Nombre**
+- 🌐 **Método HTTP:** `GET`  
+- 🔗 **URL:** `http://localhost:9090/api/category/name/{name}`  
+  *(Ejemplo: `http://localhost:9090/api/category/name/Salud`)*
 
-Método HTTP: PUT para update
-http://localhost:9090/api/product/51
+---
+
+### ✏️ **[♦ ACTUALIZAR ♦]**
+#### ♻️ **Actualizar Categoría**
+- 📡 **Método HTTP:** `PUT`  
+- 🔗 **URL:** `http://localhost:9090/api/category/{id}`  
+  *(Ejemplo: `http://localhost:9090/api/category/1`)*  
+- 📥 **Cuerpo de la solicitud (JSON):**
+```json
 {
-    "name": "Smartphone XX Pro",
-    "description" : "Smartphone de HYPE gama con cámara de 500 MP y pantalla 4k 120fps.",
-    "price": 5000.00,
-    "stock": 100,
-    "minStock": 20,
-    "categoryId": 1
+  "name": "Componentes_PC_Y_LAPTOPS",
+  "description": "Productos para ensamblar o actualizar tu computadora o laptop."
 }
+```
 
-Método HTTP: DELETE por id
-http://localhost:9090/api/product/id/51
+---
 
-Método HTTP: DELETE por name
-http://localhost:9090/api/product/name/Smartphone XX Pro
-}
-}
+### ❌ **[♦ ELIMINAR ♦]**
+#### 🗑️ **Eliminar Categoría por ID**
+- 🔗 **URL:** `http://localhost:9090/api/category/id/{id}`  
+  *(Ejemplo: `http://localhost:9090/api/category/id/3`)*  
 
+#### 🔥 **Eliminar Categoría por Nombre**
+- 🔗 **URL:** `http://localhost:9090/api/category/name/{name}`  
+  *(Ejemplo: `http://localhost:9090/api/category/name/Componentes_PC_Y_LAPTOPS`)*
 
-[► POSTMAN ◄]
-{URL} http://localhost:9090/api/roles
-[◘ PRUEBAS POSTMAN ◘]
+---
 
-[◘ ROLE ◘]
-[♦ RESUMEN ♦]
-GET /api/roles: Obtener todos los roles.
+## 🛒 **PRODUCT** (`/api/product`) 🛒
 
-POST /api/roles: Crear un nuevo rol.
-
-GET /api/roles/{name}: Obtener un rol por nombre.
-
-PUT /api/roles/{name}: Actualizar un rol por nombre.
-
-DELETE /api/roles/{name}: Eliminar un rol por nombre.
-
-DELETE /api/roles/id/{id}: Eliminar un rol por ID.
-
-
-[◘ ROLE - FUNCIONALIDADES ◘]
-
-[♦ CREAR ♦]
-
-Método HTTP: POST
-
-URL: http://localhost:9090/api/roles
-
-Cuerpo de la solicitud (JSON):
-
+### 🛠️ **[♦ CREAR ♦]** - **Crear Producto**
+- 📡 **Método HTTP:** `POST`  
+- 🔗 **URL:** `http://localhost:9090/api/product`  
+- 📥 **Cuerpo de la solicitud (JSON):**
+```json
 {
-  "name": "ADMIN"
+  "name": "Smartphone X Pro",
+  "description": "Smartphone de alta gama con cámara de 64 MP y pantalla OLED.",
+  "price": 899.00,
+  "stock": 50,
+  "minStock": 5,
+  "categoryId": 1
 }
-Respuesta esperada (201 Created):
-
+```
+- ✅ **Respuesta esperada:** `201 Created`
+```json
 {
-  "role_id": "abc123",
-  "name": "ADMIN"
+  "id": 51,
+  "name": "Smartphone X Pro",
+  "description": "Smartphone de alta gama con cámara de 64 MP y pantalla OLED.",
+  "price": 899.00,
+  "stock": 50,
+  "minStock": 5,
+  "categoryId": 1
 }
+```
 
-[♦ LISTAR ♦]
+#### 📄 **Listar todos los productos**
+- 🌐 **Método HTTP:** `GET`  
+- 🔗 **URL:** `http://localhost:9090/api/product`
 
-Método: GET
+#### 🔍 **Obtener Producto por ID**
+- 🌐 **Método HTTP:** `GET`  
+- 🔗 **URL:** `http://localhost:9090/api/product/{id}`  
+  *(Ejemplo: `http://localhost:9090/api/product/51`)*
 
-URL: http://localhost:9090/api/roles
+#### 🔍 **Obtener Producto por Nombre**
+- 🌐 **Método HTTP:** `GET`  
+- 🔗 **URL:** `http://localhost:9090/api/product/name/{name}`  
+  *(Ejemplo: `http://localhost:9090/api/product/name/Smartphone X Pro`)*
 
-Respuesta esperada (200 OK):
-
-[
-  {
-    "role_id": "abc123",
-    "name": "ADMIN"
-  },
-  {
-    "role_id": "def456",
-    "name": "USER"
-  }
-]
-
-[♦ LISTAR POR ROL♦]
-
-Método: GET
-
-URL: http://localhost:9090/api/roles/{name}
-
-Respuesta esperada (200 OK):
-
-
-[◘ PRODUCT ◘]
-{URL} http://localhost:9090/api/product
-
-[♦ RESUMEN ♦]
-GET    /api/product             : Listar todos los productos
-GET    /api/product/{id}        : Obtener un producto por ID
-GET    /api/product/name/{name} : Obtener productos por nombre
-POST   /api/product             : Crear un nuevo producto
-PUT    /api/product/{id}        : Actualizar un producto por ID
-DELETE /api/product/id/{id}     : Eliminar un producto por ID
-DELETE /api/product/name/{name} : Eliminar productos por nombre
-
-[◘ PRODUCT - FUNCIONALIDADES ◘]
-
-[♦ CREAR ♦]
-Método HTTP: POST
-URL: http://localhost:9090/api/product
-
-Cuerpo de la solicitud (JSON):
-
+#### ✏️ **Actualizar Producto**
+- 📡 **Método HTTP:** `PUT`  
+- 🔗 **URL:** `http://localhost:9090/api/product/{id}`  
+  *(Ejemplo: `http://localhost:9090/api/product/51`)*  
+- 📥 **Cuerpo de la solicitud (JSON):**
+```json
 {
-  "name": "Camisa Casual",
-  "description": "Camisa de algodón manga larga",
-  "price": 49.99,
+  "name": "Smartphone XX Pro",
+  "description": "Smartphone de gama HYPE con cámara de 500 MP y pantalla 4k 120fps.",
+  "price": 5000.00,
   "stock": 100,
-  "minStock": 10,
-  "categoryId": 3
+  "minStock": 20,
+  "categoryId": 1
 }
+```
 
-Respuesta esperada (201 Created):
+#### ❌ **Eliminar Producto**
+- 🗑️ **Por ID:**  
+  🔗 **URL:** `http://localhost:9090/api/product/id/{id}`  
+  *(Ejemplo: `http://localhost:9090/api/product/id/51`)*  
+- 🔥 **Por Nombre:**  
+  🔗 **URL:** `http://localhost:9090/api/product/name/{name}`  
+  *(Ejemplo: `http://localhost:9090/api/product/name/Smartphone XX Pro`)*
 
+---
+
+## 💰 **SALE** (`/api/sale`) 💰
+
+### ✨ **[♦ CREAR ♦]** - **Crear una nueva venta**
+- 📡 **Método HTTP:** `POST`  
+- 🔗 **URL:** `http://localhost:9090/api/sale`  
+- 📥 **Cuerpo de la solicitud (JSON):**
+```json
 {
-  "id": 15,
-  "name": "Camisa Casual",
-  "description": "Camisa de algodón manga larga",
-  "price": 49.99,
-  "stock": 100,
-  "minStock": 10,
-  "categoryId": 3,
-  "categoryName": "Ropa"
+  "clientName": "Carlos Romero",
+  "total": 249.90,
+  "paymentType": "EFECTIVO"
 }
-
-[♦ LISTAR ♦]
-Método: GET
-URL: http://localhost:9090/api/product
-Respuesta esperada (200 OK):
-
-[
-  {
-    "id": 15,
-    "name": "Camisa Casual",
-    "description": "Camisa de algodón manga larga",
-    "price": 49.99,
-    "stock": 100,
-    "minStock": 10,
-    "categoryId": 3,
-    "categoryName": "Ropa"
-  },
-  {
-    "id": 16,
-    "name": "Pantalón Jeans",
-    "description": "Jeans azul oscuro",
-    "price": 79.99,
-    "stock": 50,
-    "minStock": 5,
-    "categoryId": 3,
-    "categoryName": "Ropa"
-  }
-]
-
-
-[♦ OBTENER POR ID ♦]
-Método: GET
-URL: http://localhost:9090/api/product/15
-Respuesta esperada (200 OK):
-
+```
+- ✅ **Respuesta esperada:** `201 Created`
+```json
 {
-  "id": 15,
-  "name": "Camisa Casual",
-  "description": "Camisa de algodón manga larga",
-  "price": 49.99,
-  "stock": 100,
-  "minStock": 10,
-  "categoryId": 3,
-  "categoryName": "Ropa"
+  "id": 101,
+  "clientName": "Carlos Romero",
+  "total": 249.90,
+  "paymentType": "EFECTIVO",
+  "createdAt": "2025-05-06T14:32:10"
 }
+```
 
-[♦ OBTENER POR NOMBRE ♦]
-Método: GET
-URL: http://localhost:9090/api/product/name/Camisa%20Casual
-Respuesta esperada (200 OK):
+---
 
-[
-  {
-    "id": 15,
-    "name": "Camisa Casual",
-    "description": "Camisa de algodón manga larga",
-    "price": 49.99,
-    "stock": 100,
-    "minStock": 10,
-    "categoryId": 3,
-    "categoryName": "Ropa"
-  }
-]
+### 📑 **[♦ LISTAR ♦]** - **Listar todas las ventas**
+- 📡 **Método HTTP:** `GET`  
+- 🔗 **URL:** `http://localhost:9090/api/sale`
 
+---
 
-[♦ ACTUALIZAR ♦]
-Método HTTP: PUT
-URL: http://localhost:9090/api/product/15
+### 🔍 **[♦ OBTENER POR ID ♦]** - **Obtener una venta por ID**
+- 📡 **Método HTTP:** `GET`  
+- 🔗 **URL:** `http://localhost:9090/api/sale/101`
 
-Cuerpo de la solicitud (JSON):
+---
 
+### ✏️ **[♦ ACTUALIZAR ♦]** - **Actualizar una venta**
+- 📡 **Método HTTP:** `PUT`  
+- 🔗 **URL:** `http://localhost:9090/api/sale/101`  
+- 📥 **Cuerpo de la solicitud (JSON):**
+```json
 {
-  "name": "Camisa Formal",
-  "description": "Camisa de algodón manga larga, corte slim",
-  "price": 59.99,
-  "stock": 80,
-  "minStock": 10,
-  "categoryId": 3
+  "clientName": "Carlos R. G.",
+  "total": 275.00,
+  "paymentType": "TARJETA"
 }
+```
 
-Respuesta esperada (200 OK):
+---
+
+### 🗑️ **[♦ ELIMINAR ♦]** - **Eliminar una venta por ID**
+- 📡 **Método HTTP:** `DELETE`  
+- 🔗 **URL:** `http://localhost:9090/api/sale/id/101`
+
+---
+
+## 📄 **SALE DETAIL** (`/api/saledetail`) 📄
+
+### ✨ **[♦ CREAR ♦]** - **Crear un detalle de venta**
+- 📡 **Método HTTP:** `POST`  
+- 🔗 **URL:** `http://localhost:9090/api/saledetail`  
+- 📥 **Cuerpo de la solicitud (JSON):**
+```json
 {
-  "id": 15,
-  "name": "Camisa Formal",
-  "description": "Camisa de algodón manga larga, corte slim",
-  "price": 59.99,
-  "stock": 80,
-  "minStock": 10,
-  "categoryId": 3,
-  "categoryName": "Ropa"
+  "saleId": 101,
+  "productId": 10,
+  "quantity": 2,
+  "unitPrice": 124.95
 }
+```
+- ✅ **Respuesta esperada:** `201 Created`
+```json
+{
+  "id": 501,
+  "saleId": 101,
+  "productId": 10,
+  "quantity": 2,
+  "unitPrice": 124.95,
+  "subtotal": 249.90
+}
+```
 
-[♦ ELIMINAR POR ID ♦]
-Método: DELETE
-URL: http://localhost:9090/api/product/id/15
-Respuesta esperada (204 No Content):
+---
 
-[♦ ELIMINAR POR NOMBRE ♦]
-Método: DELETE
-URL: http://localhost:9090/api/product/name/Camisa%20Formal
-Respuesta esperada (204 No Content):
+### 📑 **[♦ LISTAR ♦]** - **Listar todos los detalles de venta**
+- 📡 **Método HTTP:** `GET`  
+- 🔗 **URL:** `http://localhost:9090/api/saledetail`
 
+---
 
+### 🔍 **[♦ OBTENER POR ID ♦]** - **Obtener detalle por ID**
+- 📡 **Método HTTP:** `GET`  
+- 🔗 **URL:** `http://localhost:9090/api/saledetail/501`
+
+---
+
+### ✏️ **[♦ ACTUALIZAR ♦]** - **Actualizar detalle de venta**
+- 📡 **Método HTTP:** `PUT`  
+- 🔗 **URL:** `http://localhost:9090/api/saledetail/501`  
+- 📥 **Cuerpo de la solicitud (JSON):**
+```json
+{
+  "quantity": 3,
+  "unitPrice": 119.90
+}
+```
+
+---
+
+### 🗑️ **[♦ ELIMINAR ♦]** - **Eliminar detalle de venta por ID**
+- 📡 **Método HTTP:** `DELETE`  
+- 🔗 **URL:** `http://localhost:9090/api/saledetail/id/501`
+
+---
+
+## 🎟 **COUPON** (`/api/coupon`) 🎟
+
+### ✨ **[♦ CREAR ♦]** - **Crear un cupón**
+- 📡 **Método HTTP:** `POST`  
+- 🔗 **URL:** `http://localhost:9090/api/coupon`  
+- 📥 **Cuerpo de la solicitud (JSON):**
+```json
+{
+  "code": "PROMO25",
+  "discount": 25.0,
+  "expirationDate": "2025-12-31"
+}
+```
+- ✅ **Respuesta esperada:** `201 Created`
+```json
+{
+  "id": 12,
+  "code": "PROMO25",
+  "discount": 25.0,
+  "expirationDate": "2025-12-31"
+}
+```
+
+---
+
+### 📑 **[♦ LISTAR ♦]** - **Listar todos los cupones**
+- 📡 **Método HTTP:** `GET`  
+- 🔗 **URL:** `http://localhost:9090/api/coupon`
+
+---
+
+### 🔍 **[♦ OBTENER POR ID ♦]** - **Obtener cupón por ID**
+- 📡 **Método HTTP:** `GET`  
+- 🔗 **URL:** `http://localhost:9090/api/coupon/12`
+
+---
+
+### ✏️ **[♦ ACTUALIZAR ♦]** - **Actualizar un cupón**
+- 📡 **Método HTTP:** `PUT`  
+- 🔗 **URL:** `http://localhost:9090/api/coupon/12`  
+- 📥 **Cuerpo de la solicitud (JSON):**
+```json
+{
+  "discount": 30.0,
+  "expirationDate": "2026-01-15"
+}
+```
+
+---
+
+### 🗑️ **[♦ ELIMINAR ♦]** - **Eliminar cupón por ID**
+- 📡 **Método HTTP:** `DELETE`  
+- 🔗 **URL:** `http://localhost:9090/api/coupon/id/12`
+
+---
 
 
