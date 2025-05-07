@@ -1,123 +1,149 @@
-# COMO EJECUTAR EL SISTEMA
+# 🌟 Cómo Ejecutar el Sistema
 
-## REQUISITOS
-[Herramientas]
+## 📋 Requisitos
 
-[IDE]: InteliJ
+### 🛠 Herramientas
+- **IDE**: 💻 [IntelliJ IDEA](https://www.jetbrains.com/idea/)
+  
+### ⚙️ Tecnologías
+- **Java** ☕
+- **Spring Boot** 🚀
+- **Spring Security** 🔐
+- **Spring Data JPA** 🗄
+- **Spring Web** 🌐
+- **Lombok** ✂️
+- **MySQL Driver** 🛢
+- **JJWT** 🔑
 
-[Tecnologias]:
-• Java
-• Spring Boot
-• Spring Security
-• Spring Data JPA
-• Spring Web
-• Lombok
-• MySQL Driver
-• JJWT 
-[Motor de Base de Datos]:
-MySQL Workbench
+### 💻 Motor de Base de Datos
+- **MySQL Workbench** 💼
 
-[Front-end]:
-Node.js
-Angular v19
+### 🌍 Front-End
+- **Node.js** 🌱
+- **Angular v19** ⚡
 
-[Front-end - Solucion para problemas de lso puertos]:
+### 🔧 Solución para problemas de puertos (Front-End)
+Si tienes problemas con puertos, utiliza este comando para encontrar y liberar el puerto bloqueado:
+
+```bash
 netstat -aon | findstr :<PUERTO>
 
 TCP    0.0.0.0:9090    0.0.0.0:0    LISTENING    1234 <-- Copiar
 
 taskkill /PID 1234 /F
+```
+---
 
-## BACKEND
-- Abrir Proyecto
-- Ir a BackendApplication
-- Ir a Run
+## ⚡ Backend
 
-Abrir PostMan para pruebas
+### 🚀 Pasos para Ejecutar el Backend
 
-## 📅 ESTRUCTURA BACKEND
--------------
-src/main/java
-└── com/lozano
-    ├── application             
-    │   ├── dto                   
-    │   ├── mapper                 
-    │   └── service              
-    ├── domain                    
-    │   ├── entity                
-    │   └── repository            
-    ├── security            
-    │   ├── filter          
-    │   └── util                        
-    └── web.controller 
-	
-[FLUJO DEL BACKEND]
-1. entity
-2. dto
-3. mapper
-4. repository
-5. service (IService , ServiceImpl)
-6. controller
+1. **Abrir el Proyecto**:  
+   - Abre el proyecto en **IntelliJ IDEA**.
 
-[Analisis del Proyecto]
+2. **Ir a la Clase Principal**:  
+   - Navega a la clase `BackendApplication`.
 
-[-- ENTIDADES --]
+3. **Ejecutar el Proyecto**:  
+   - Haz clic en el botón **Run** para iniciar el backend.
 
-User    💻
-Role     💻  
-Product 💻
-Category 💻
-Sale       💻
-SaleDetail 💻
-Coupon 💻
+4. **Pruebas con Postman**:  
+   - Abre **Postman** y realiza las pruebas de los endpoints.
 
-[-- DTO --]
+---
 
-User - Request / Response
-Role - Request / Response
-Product - Request / Response
-Category - Request / Response
-Sale - Request / Response
-SaleDetail - Request / Response
-Coupon - Request / Response
+## 📅 Estructura del Backend
 
-[-- MAPPER --]
+```plaintext
+src/main/java/com/lozano
+├── application
+│   ├── dto
+│   ├── mapper
+│   └── service
+├── domain
+│   ├── entity
+│   └── repository
+├── security
+│   ├── filter
+│   └── util
+└── web.controller
+```
 
-UserMapper
-RoleMapper
-ProductMapper
-CategoryMapper
-SaleMapper
-SaleDetailMapper
-CouponMapper
+---
 
-[-- SERVICE --]
+## 🧩 Flujo del Backend
 
-IUserService – UserServiceImpl
-IRoleService – RoleServiceImpl
-ICategoryService – CategoryServiceImpl
-IProductService – ProductServiceImpl
-ISaleService – SaleServiceImpl
-ISaleDetailService – SaleDetailServiceImpl
-IAuthService – AuthServiceImpl
-ICouponService - CouponServiceImpl
+1. **Entity**  
+2. **DTO**  
+3. **Mapper**  
+4. **Repository**  
+5. **Service** (IService, ServiceImpl)  
+6. **Controller**
 
-Methods{
-create
-update
-findByName
-findById
-findAll
-deleteByName
-deleteById
-otros metodos de busqueda
-}
+---
 
-[-- CONTROLLER --]
-UserController
-RoleController
-ProductController
-CategoryController
-SaleController
-SaleDetailController
-CouponController
+## 📊 Análisis del Proyecto
+
+### 📂 **Entidades** (Entities)
+
+- **User** 💻  
+- **Role** 🔑  
+- **Product** 📦  
+- **Category** 🏷  
+- **Sale** 💰  
+- **SaleDetail** 📄  
+- **Coupon** 🎟
+
+### 📤 **DTO** (Data Transfer Objects)
+
+- **User**: Request / Response  
+- **Role**: Request / Response  
+- **Product**: Request / Response  
+- **Category**: Request / Response  
+- **Sale**: Request / Response  
+- **SaleDetail**: Request / Response  
+- **Coupon**: Request / Response
+
+### 🛠 **Mappers**
+
+- **UserMapper**  
+- **RoleMapper**  
+- **ProductMapper**  
+- **CategoryMapper**  
+- **SaleMapper**  
+- **SaleDetailMapper**  
+- **CouponMapper**
+
+### ⚙️ **Servicios** (Services)
+
+- **IUserService** – UserServiceImpl  
+- **IRoleService** – RoleServiceImpl  
+- **ICategoryService** – CategoryServiceImpl  
+- **IProductService** – ProductServiceImpl  
+- **ISaleService** – SaleServiceImpl  
+- **ISaleDetailService** – SaleDetailServiceImpl  
+- **IAuthService** – AuthServiceImpl  
+- **ICouponService** – CouponServiceImpl
+
+**Métodos Comunes**:
+- `create` ✨
+- `update` 🔄
+- `findByName` 🔍
+- `findById` 📋
+- `findAll` 📑
+- `deleteByName` 🗑️
+- `deleteById` 🗑️
+- Otros métodos de búsqueda 🔍
+
+### 🎮 **Controladores** (Controllers)
+
+- **UserController**  
+- **RoleController**  
+- **ProductController**  
+- **CategoryController**  
+- **SaleController**  
+- **SaleDetailController**  
+- **CouponController**  
+
+---
+
