@@ -33,7 +33,7 @@ public class Product {
     @Column(name = "stock", nullable = false)
     private Integer stock;
 
-    @Column(name = "min_stock")
+    @Column(name = "min_stock", nullable = false)
     private Integer minStock;
 
     @ManyToOne(optional = false)

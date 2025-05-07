@@ -23,7 +23,7 @@ public class Category {
     private String name;
     private String description;
 
-    @OneToMany(mappedBy = "categoria")
+    @OneToMany(mappedBy = "category")
     @JsonManagedReference
     private List<Product> products;
 }

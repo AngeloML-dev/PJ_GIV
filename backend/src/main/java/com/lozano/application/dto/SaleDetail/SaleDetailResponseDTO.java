@@ -1,6 +1,5 @@
 package com.lozano.application.dto.SaleDetail;
 
-import com.lozano.application.dto.Product.ProductResponseDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,7 +11,10 @@ import lombok.NoArgsConstructor;
 @Builder
 public class SaleDetailResponseDTO {
     private Long id;
-    private ProductResponseDTO product;
+    private Long productId;
+    private String productName;
+    private String productDescription; // Opcional
     private Integer quantity;
-    private Double price;
+    private Double unitPrice;
+    private Double subtotal;
 }

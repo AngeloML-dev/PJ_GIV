@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ProductMapper {
 
-    public ProductResponseDTO toResponse(Product product) {
+    public ProductResponseDTO toResponseDTO(Product product) {
         if (product == null) return null;
         return ProductResponseDTO.builder()
                 .id(product.getId())
@@ -17,6 +17,7 @@ public class ProductMapper {
                 .description(product.getDescription())
                 .price(product.getPrice())
                 .stock(product.getStock())
+                .minStock(product.getMinStock())
                 .categoryId(product.getCategory().getId())
                 .categoryName(product.getCategory().getName())
                 .build();
@@ -29,6 +30,7 @@ public class ProductMapper {
                 .description(dto.getDescription())
                 .price(dto.getPrice())
                 .stock(dto.getStock())
+                .minStock(dto.getMinStock())
                 .category(category)
                 .build();
     }
