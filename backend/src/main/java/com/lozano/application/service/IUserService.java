@@ -9,8 +9,11 @@ import java.util.List;
 import java.util.List;
 
 public interface IUserService {
-    List<UserResponseDTO> listAll();
+    List<UserResponseDTO> findAll();
     UserResponseDTO findById(Long id);
+    List<UserResponseDTO> findByName(String name);
     UserResponseDTO create(UserRequestDTO dto);
-    void delete(Long id);
+    void deleteById(Long id);
+    void deleteByName(String name);
+    UserResponseDTO update(Long id, UserRequestDTO dto);
 }

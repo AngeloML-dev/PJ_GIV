@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class RoleMapper {
 
-    public RoleResponseDTO toResponse(Role role) {
+    public RoleResponseDTO toResponseDTO(Role role) {
         if (role == null) return null;
         return RoleResponseDTO.builder()
                 .name(role.getName())
