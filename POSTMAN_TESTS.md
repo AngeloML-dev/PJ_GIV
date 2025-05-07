@@ -2,6 +2,46 @@
 
 ---
 
+## 📑 **Índice**
+
+1. [👤 USER (`/api/user`)](#-user-apiuser-)
+   - [♦ Crear Usuario](#-crear-usuario)
+   - [♦ Consultar Usuarios](#-consultar-usuarios)
+   - [♦ Actualizar Usuario](#-actualizar-usuario)
+   - [♦ Eliminar Usuario](#-eliminar-usuario)
+2. [🛡️ ROLE (`/api/role`)](#%EF%B8%8F-role-apirole-)
+   - [♦ Crear Rol](#-crear-rol)
+   - [♦ Consultar Roles](#-consultar-roles)
+   - [♦ Actualizar Rol](#-actualizar-rol)
+   - [♦ Eliminar Rol](#-eliminar-rol)
+3. [🌟 CATEGORY (`/api/category`)](#-category-apicategory-)
+   - [♦ Crear Categoría](#-crear-categoría)
+   - [♦ Consultar Categorías](#-consultar-categorías)
+   - [♦ Actualizar Categoría](#-actualizar-categoría)
+   - [♦ Eliminar Categoría](#-eliminar-categoría)
+4. [🛒 PRODUCT (`/api/product`)](#-product-apiproduct-)
+   - [♦ Crear Producto](#-crear-producto)
+   - [♦ Consultar Productos](#-consultar-productos)
+   - [♦ Actualizar Producto](#-actualizar-producto)
+   - [♦ Eliminar Producto](#-eliminar-producto)
+5. [💰 SALE (`/api/sale`)](#-sale-apisale-)
+   - [♦ Crear Venta](#-crear-venta)
+   - [♦ Consultar Ventas](#-consultar-ventas)
+   - [♦ Actualizar Venta](#-actualizar-venta)
+   - [♦ Eliminar Venta](#-eliminar-venta)
+6. [📄 SALE DETAIL (`/api/saledetail`)](#-sale-detail-apisaledetail-)
+   - [♦ Crear Detalle de Venta](#-crear-detalle-de-venta)
+   - [♦ Consultar Detalles de Venta](#-consultar-detalles-de-venta)
+   - [♦ Actualizar Detalle de Venta](#-actualizar-detalle-de-venta)
+   - [♦ Eliminar Detalle de Venta](#-eliminar-detalle-de-venta)
+7. [🎟 COUPON (`/api/coupon`)](#-coupon-apicoupon-)
+   - [♦ Crear Cupón](#-crear-cupón)
+   - [♦ Consultar Cupones](#-consultar-cupones)
+   - [♦ Actualizar Cupón](#-actualizar-cupón)
+   - [♦ Eliminar Cupón](#-eliminar-cupón)
+
+---
+
 ## 👤 **USER** (`/api/user`) 👤
 
 ### 🛠️ **[♦ CREAR ♦]**
